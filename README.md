@@ -4,7 +4,12 @@ A simple PHP script designed to send email from CLI using PHPMailer class, insid
 
 ## Usage
 
-Clone the [github repository]()
+Clone the [github repository](https://github.com/bdelphin/simple_phpmailer) :
+
+```bash
+git clone git@github.com:bdelphin/simple_phpmailer.git
+cd simple_phpmailer
+```
 
 Create a copy of the `.env.example` file nammed `.env`, and configure the environment variables in this file with a text editor :
 
