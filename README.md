@@ -1,6 +1,8 @@
 # Simple PHPMailer with Docker
 
-A simple PHP script designed to send email from CLI using PHPMailer class, inside a Docker Container.
+A simple PHP script designed to send email from CLI using [PHPMailer class](https://github.com/PHPMailer/PHPMailer), inside a Docker Container.
+
+⚠️ This script is more a proof-of-concept than something you should use in production. I built it as a workaround to use on a server where I couldn't install postfix. Use it at your own risk.
 
 ## Usage
 
@@ -22,6 +24,16 @@ To send a mail, lauch the following command :
 
 ```bash
 docker run -it --rm -v ${PWD}/.env:/app/.env \
+--name simple_phpmailer bdelphin/simple_phpmailer:latest \
+php mailer.php -s "Mail subject" \
+-m "Mail body" \
+-r "recipient@example.com"
+```
+
+💡 The previous command will only work if you're in the `simple_phpmailer` folder. If you want to send a mail from any location on your system, replace `${PWD}` with the absolute path to the `simple_phpmailer` folder :
+
+```bash
+docker run -it --rm -v /absolute/path/to/simple_phpmailer/.env:/app/.env \
 --name simple_phpmailer bdelphin/simple_phpmailer:latest \
 php mailer.php -s "Mail subject" \
 -m "Mail body" \
